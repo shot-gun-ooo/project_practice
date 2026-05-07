@@ -165,6 +165,34 @@ project_practice/
 └── 📂 dist/                     # 빌드 출력물
 ```
 
+### 컴포넌트 구성도 (Mermaid)
+
+```mermaid
+componentDiagram
+  direction LR
+
+  %% App & routing
+  main[main.js] --> app[App.vue]
+  app --> router[router/index.js]
+  router --> dashboard[views/Dashboard.vue]
+  router --> transactions[views/Transactions.vue]
+
+  %% Views -> shared components
+  dashboard --> statcard[components/StatCard.vue]
+  dashboard --> piechart[components/PieChart.vue]
+  dashboard --> linechart[components/LineChart.vue]
+
+  %% State management & data fetching
+  dashboard --> store[stores/transactionStore.js]
+  transactions --> store
+  store --> api[services/api.js]
+  api --> jsonserver[json-server (Mock API)]
+
+  %% Charts rendering library
+  piechart --> googlecharts[Google Charts]
+  linechart --> googlecharts
+```
+
 ### 핵심 파일 설명
 
 #### `src/stores/transactionStore.js` - 상태 관리
