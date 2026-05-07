@@ -168,9 +168,7 @@ project_practice/
 ### 컴포넌트 구성도 (Mermaid)
 
 ```mermaid
-componentDiagram
-  direction LR
-
+flowchart LR
   %% App & routing
   main[main.js] --> app[App.vue]
   app --> router[router/index.js]
